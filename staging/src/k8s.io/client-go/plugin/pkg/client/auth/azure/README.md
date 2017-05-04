@@ -5,11 +5,11 @@ This plugin provides an integration with Azure Active Directory device flow. If 
 
 ## Usage
 
-1. Create an Azure Active Directory native application for `apiserver` following these [instructions](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-app-registration)
+1. Create an Azure Active Directory *Web App / API* application for `apiserver` following these [instructions](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-app-registration)
 
 2. Create a second Azure Active Directory native application for `kubectl` 
 
-3. On `kubectl` application's configuration page in Azure portal grant permissions to `apiserver` application by clicking on *Required Permissions* then click the *Grant Permissions* button and introduce the ID of `apiserver` application
+3. On `kubectl` application's configuration page in Azure portal grant permissions to `apiserver` application by clicking on *Required Permissions*, click the *Add* button and search for the apiserver application created in step 1. Select "Access apiserver" under the *DELEGATED PERMISSIONS*. Once added click the *Grant Permissions* button to apply the changes
 
 4. Configure the `apiserver` to use the Azure Active Directory as an OIDC provider with following options
 
@@ -40,7 +40,7 @@ This plugin provides an integration with Azure Active Directory device flow. If 
  6. The access token is acquired when first `kubectl` command is executed
 
    ```
-   kubeclt get pods
+   kubectl get pods
 
    To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code DEC7D48GA to authenticate.
    ```
